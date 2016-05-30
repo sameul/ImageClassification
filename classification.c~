@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+int doClassification(char *arg, char **arg1)
+{
+	*arg1 = malloc(1024);
+	sprintf(*arg1, "/home/john/caffe/build/examples/cpp_classification/classification.bin \
+  /home/john/caffe/models/bvlc_reference_caffenet/deploy.prototxt \
+  /home/john/caffe/models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel \
+  /home/john/caffe/data/ilsvrc12/imagenet_mean.binaryproto \
+  /home/john/caffe/data/ilsvrc12/synset_words.txt %s > infile\", arg);
+	system(*arg1);
+	return 0;
+}
